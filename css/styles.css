@@ -1,0 +1,75 @@
+@font-face{
+	font-family:"Saysettha OT";
+	src:url(SAYSETT0.eot);
+	src: local("Saysettha OT"), url('SAYSETOT.TTF') format('truetype'); /*non IE */
+}
+
+:lang(lo)
+{
+    font-family: "Saysettha OT", "Phetsarath OT", serif;
+    src:url(SAYSETT0.eot);
+	src: local("Saysettha OT"), url('SAYSETOT.TTF') format('truetype'); /*non IE */
+    font-size: 10pt;
+}
+
+body
+{
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: normal 10pt "Saysettha OT",Arial,Helvetica,sans-serif;
+	background: #EFEFEF;
+}
+
+#topnavigation{
+	margin:0px;
+}
+
+#username{
+	margin-left:30px;
+	margin-right:50px;
+}
+
+#content{
+	margin:10px;
+}
+#page
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+	background: white;
+	border: 1px solid #C9E0ED;
+	width: 99%;
+}
+
+
+#logo
+{
+	padding: 0px 0px;
+	font-size: 200%;
+	background:url(../images/banner.gif) repeat-y;
+	height:118px;
+}
+
+#logo1
+{
+	padding: 0px 0px;
+	font-size: 200%;
+	background:url(../images/bg.gif)  repeat-x;
+	height:118px;
+}
+
+#mainmenu
+{
+	background:white url(bg.gif) repeat-x left top;
+}
+
+#footer
+{
+	font-size: 10pt;
+	text-align: center;
+	border-top: 1px solid #C9E0ED;
+	background:#006599;
+	color: white;
+	height: 80px;
+}
