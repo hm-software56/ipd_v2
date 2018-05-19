@@ -47,7 +47,7 @@ $this->beginWidget('bootstrap.widgets.TbModal', array('htmlOptions'=>array('id'=
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'inc-document-grid',
 	 'type'=>'condensed striped',
-	'dataProvider'=>$model->indoc_of_me()->search(),
+	'dataProvider'=>$model->indoc_of_me(1)->search(),
 	'filter'=>$model,
 	'summaryText' => Yii::t('app','Displaying {start}-{end} of {count} result(s)'),
 	'columns'=>array(
@@ -89,11 +89,11 @@ $this->beginWidget('bootstrap.widgets.TbModal', array('htmlOptions'=>array('id'=
             'header'=>Yii::t('app','Document Title'),
         ),
          array(
-        	'name'=>'inc_document_no',
+        	'name'=> 'document_id',
         	//'value'=>'!empty(IncDocument::model()->findByPk($data->document->related_document_id)->inc_document_no)?IncDocument::model()->findByPk($data->document->related_document_id)->inc_document_no:""',
         	'value'=>'IncDocument::model()->getrelIncTosection($data->document->related_document_id)',
         	'header'=>Yii::t('app','In document no'),
-         	'filter'=>false,
+         	//'filter'=>true,
         	'visible'=>!Yii::app()->user->checkAccess('SingleWindow')
         ),
         array(

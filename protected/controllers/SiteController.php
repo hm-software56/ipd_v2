@@ -286,4 +286,27 @@ class SiteController extends Controller
 		$model=Document::model()->findByPk($_GET['docid']);
 		$this->renderPartial('popocer',array('model'=>$model),false,true);
 	}
+
+	public function actionIndocPublic($id)
+	{
+		$this->render('view_indoc', array(
+			//'model' => $this->loadModel($id, 'IncDocument'),
+			'model' => IncDocument::model()->findByPk($id),
+		));
+	}
+
+	public function actionSearchPublic()
+	{
+		if(isset($_POST['code']))
+		{
+			$indoc=IncDocument::model()->findByAttributes(['inc_document_no'=>$_POST['code']]);
+			if($indoc)
+			{
+				$this->redirect(array('/site/indocPublic', 'id' => $indoc->document_id));
+			}else{
+				Yii::app()->session['error']="ປ້ອນ​ເລກ​ທີເອ​ກະ​ສານ​ບໍ່​ຖືກ​ຕ້ອງ.";
+			}
+			$this->redirect(array('site/login'));
+		}
+	}
 }

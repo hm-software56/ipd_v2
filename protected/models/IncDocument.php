@@ -193,6 +193,7 @@ class IncDocument extends BaseIncDocument
 	 */
 	public function search()
 	{
+		//echo "exit";exit;
 	    //Get user id and organization id
 	    $user=Yii::app()->session->get('user');
 	    if ($user===null)
@@ -209,8 +210,13 @@ class IncDocument extends BaseIncDocument
 		$condition=Organization::getChildCondition($user->organization_id);
 		$condition = ($condition != "") ? "to_organization_id IN (" . $condition . ")" : "";
 		$criteria->addCondition($condition);
-
-		$criteria->compare('document_id', $this->document_id);
+		//print_r(Yii::app()->session['doc_id']);exit;
+		if(!empty(Yii::app()->session['doc_id']))
+		{
+			$criteria->addInCondition('document_id', Yii::app()->session['doc_id']);
+		}else{
+			$criteria->compare('document_id', $this->document_id);
+		}
 		$criteria->compare('inc_document_no', $this->inc_document_no, true);
 		$criteria->compare('is_application', $this->is_application, true);
 		$criteria->compare('sender', $this->sender, true);

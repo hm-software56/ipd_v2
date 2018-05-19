@@ -68,7 +68,6 @@ class AdvancedSearchWidget extends CWidget
 	        				'incDocument.documentStatus',
 	        				'outDocument.documentReceivers.documentStatus'=>array('alias'=>'documentStatusReceiver'));
 	        	}
-				
 	        	if($model->from_date!="" && $model->to_date!="")
 	        	{
 	        		$f = date('Y-m-d',strtotime($model->from_date));

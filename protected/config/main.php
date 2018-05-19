@@ -102,10 +102,10 @@ return array(
 		    'initSQLs'=>array('SET SESSION TRANSACTION ISOLATION LEVEL SERIALIZABLE;'),
 		),*/
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=devcyber_ipddb',
+			'connectionString' => 'mysql:host=localhost;dbname=ipd_db_v2',
 			'emulatePrepare' => true,
-			'username' => 'devcyber_ipdusr',
-			'password' => 'ipd!@#db',
+			'username' => 'root',
+			'password' => '',
 			'charset' => 'utf8',
 		),
 		

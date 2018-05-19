@@ -246,7 +246,6 @@ class Document extends BaseDocument
 	    {
 	        $mydate = date('Y-m-d',strtotime($this->document_date));
 	    }
-	    
 		$criteria->compare('t.id', $this->id, true);
 		$criteria->compare('in_or_out', $this->in_or_out, true);
 		$criteria->compare('document_date', $mydate, true);
@@ -335,5 +334,43 @@ class Document extends BaseDocument
         }
         return $select_str;
        
-    }
+	}
+
+	public function getshowrelatepublic($cat_id, $relate_id, $level_string)
+	{
+		$select_str = '';
+		if (!$level_string) {
+			$level_string = '';
+		}
+		$cat_arr = Document::findAll('related_document_id=' . $cat_id . '', array('oder' => 'by t.id DESC'));
+		if (!is_object($cat_arr)) {
+
+			foreach ($cat_arr as $cat) {
+				if ($cat->in_or_out == "INC") {
+					$select_str .= '<tr><td>' . $level_string . ' ' . $cat->incDocument->inc_document_no . '</td><td>' . $cat->incDocument->documentStatus->status_description . '</td><td>' . $cat->incDocument->fromOrganization->organization_name . '</td><td>' . $cat->incDocument->status_date . '</td></tr>';
+				} else {
+					$receiver = '';
+					$date = '';
+					$org = '';
+					$out = DocumentReceiver::model()->findAllByAttributes(array('out_document_id' => $cat->id));
+					if (!is_object($out)) {
+						foreach ($out as $outs) {
+							$receiver .= $outs->documentStatus->status_description . '<br/>';
+							$date .= date('d-m-Y', strtotime($outs->status_date)) . '<br/>';
+							$org .= $outs->toOrganization->organization_name . '<br/>';
+						}
+					}
+					$select_str .= '<tr><td>' . $level_string . ' ' . $cat->outDocument->out_document_no . '</td><td>' . $receiver . '</td><td>' . $org . '</td><td>' . $date . '</td></tr>';
+				}
+				$select_str .= $this->getshowrelatepublic($cat->id, $relate_id, $level_string . '<b>&raquo;</b>');
+			}
+
+		} else {
+        	//$select_str1.='<tr><th colspan="3">fgfdgdg</th></tr>';
+			return false;
+          // return $select_str1;
+		}
+		return $select_str;
+
+	}
 }
