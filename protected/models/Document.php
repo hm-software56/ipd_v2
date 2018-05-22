@@ -373,4 +373,44 @@ class Document extends BaseDocument
 		return $select_str;
 
 	}
+
+	public function getshowrelatestatus($cat_id, $relate_id, $level_string)
+	{
+		$select_str = '';
+		if (!$level_string) {
+			$level_string = '';
+		}
+		$cat_arr = Document::findAll('related_document_id=' . $cat_id . '', array('oder' => 'by t.id DESC'));
+		if (!is_object($cat_arr)) {
+
+			foreach ($cat_arr as $cat) {
+				if ($cat->in_or_out == "INC") {
+					$select_str .= '<tr><td>' . $level_string . ' ' . $cat->incDocument->inc_document_no . '</td><td>' . $cat->incDocument->documentStatus->status_description . '</td><td>' . $cat->incDocument->fromOrganization->organization_name . '</td><td>' . $cat->incDocument->status_date . '</td><td>' . $cat->incDocument->getAsignshowinallstatus($cat->id) . '</td></tr>';
+				} else {
+					$receiver = '';
+					$date = '';
+					$org = '';
+					$receiver_name="";
+					$out = DocumentReceiver::model()->findAllByAttributes(array('out_document_id' => $cat->id));
+					if (!is_object($out)) {
+						foreach ($out as $outs) {
+							$receiver .= $outs->documentStatus->status_description . '<br/>';
+							$date .= date('d-m-Y', strtotime($outs->status_date)) . '<br/>';
+							$org .= $outs->toOrganization->organization_name . '<br/>';
+							$receiver_name.= $outs->receiver_name."<br/>";
+						}
+					}
+					$select_str .= '<tr><td>' . $level_string . ' ' . $cat->outDocument->out_document_no . '</td><td>' . $receiver . '</td><td>' . $org . '</td><td>' . $date . '</td><td>' . $receiver_name . '</td></tr>';
+				}
+				$select_str .= $this->getshowrelatestatus($cat->id, $relate_id, $level_string . '<b>&raquo;</b>');
+			}
+
+		} else {
+        	//$select_str1.='<tr><th colspan="3">fgfdgdg</th></tr>';
+			return false;
+          // return $select_str1;
+		}
+		return $select_str;
+
+	}
 }

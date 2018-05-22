@@ -43,6 +43,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 			<button class="btn btn-primary">ຄົ້ນ​ຫາ</button>
 		</div>
 	</div>
+	</form>
 </div>
 </div>
 </div>

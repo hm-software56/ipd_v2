@@ -244,25 +244,27 @@ class InDocumentController extends GxController {
 		
 		if (isset($_GET['IncDocument'])) 
 		{
-			$doc_no=$_GET['IncDocument']['document_id'];
-			$doc_id=NULL;
-			if(!empty($doc_no))
-			{
-				$indoc = IncDocument::model()->findByAttributes(array('inc_document_no' =>$doc_no));
-				if ($indoc) {
-					$outdoc = Document::model()->findAllByAttributes(array('related_document_id' => $indoc->document_id));
-					if ($outdoc) {
-						foreach ($outdoc as $outdoca) {
-							$outdoc1 = Document::model()->findByAttributes(array('related_document_id' => $outdoca->id));
-							if ($outdoc1) {
-								$doc_id[] = $outdoc1->id;
+			if (isset($_GET['IncDocument']['document_id'])) {
+				$doc_no=$_GET['IncDocument']['document_id'];
+				$doc_id=NULL;
+				if(!empty($doc_no))
+				{
+					$indoc = IncDocument::model()->findByAttributes(array('inc_document_no' =>$doc_no));
+					if ($indoc) {
+						$outdoc = Document::model()->findAllByAttributes(array('related_document_id' => $indoc->document_id));
+						if ($outdoc) {
+							foreach ($outdoc as $outdoca) {
+								$outdoc1 = Document::model()->findByAttributes(array('related_document_id' => $outdoca->id));
+								if ($outdoc1) {
+									$doc_id[] = $outdoc1->id;
+								}
 							}
+						} else {
+							$doc_id[] = $indoc->document_id;
 						}
-					} else {
-						$doc_id[] = $indoc->document_id;
 					}
+					Yii::app()->session['doc_id']=$doc_id;
 				}
-				Yii::app()->session['doc_id']=$doc_id;
 			}
 
 			$model->setAttributes($_GET['IncDocument']);

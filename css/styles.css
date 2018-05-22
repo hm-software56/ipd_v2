@@ -42,7 +42,9 @@ body
 	width: 99%;
 }
 
-
+.md .modal{
+	left:30% !important;
+}
 #logo
 {
 	padding: 0px 0px;

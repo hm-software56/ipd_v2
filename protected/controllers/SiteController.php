@@ -280,12 +280,6 @@ class SiteController extends Controller
 			));
 		}
 	}
-	
-	public function actionShowrelate()
-	{
-		$model=Document::model()->findByPk($_GET['docid']);
-		$this->renderPartial('popocer',array('model'=>$model),false,true);
-	}
 
 	public function actionIndocPublic($id)
 	{

@@ -44,7 +44,9 @@ $this->beginWidget('bootstrap.widgets.TbModal', array('htmlOptions'=>array('id'=
 		)); ?>
 	</div>
 </div>
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
+<?php 
+$controller = $this;
+$this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'inc-document-grid',
 	 'type'=>'condensed striped',
 	'dataProvider'=>$model->indoc_of_me(1)->search(),
@@ -86,8 +88,13 @@ $this->beginWidget('bootstrap.widgets.TbModal', array('htmlOptions'=>array('id'=
 		), 
         array(
             'name'=>'document_title',
-            'header'=>Yii::t('app','Document Title'),
-        ),
+			'header'=>Yii::t('app','Document Title'),
+			'type' => 'raw',
+			//'value'=>'IncDocument::model()->addlink($data->document_title,$data->document_id)',
+			'value' => function ($data, $row) use ($controller) {
+				return $controller->renderPartial('modal_all_status', array('doc_id' => $data->document_id,'title'=> $data->document_title),false ,false);
+			}
+		),
          array(
         	'name'=> 'document_id',
         	//'value'=>'!empty(IncDocument::model()->findByPk($data->document->related_document_id)->inc_document_no)?IncDocument::model()->findByPk($data->document->related_document_id)->inc_document_no:""',
@@ -154,3 +161,12 @@ $this->beginWidget('bootstrap.widgets.TbModal', array('htmlOptions'=>array('id'=
 		),
 	),
 )); ?>
+
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 id="myModalLabel">ສຳ​ລັບ​ນັກ​ລົງ​ທືນ​ທີ​ຕ້ອງ​ການ​ເບີງ​ເອ​ກະ​ສານ​ຕົນ​ເອງ</h3>
+		</div>
+		<div class="modal-body">
+		</div>
+</div>

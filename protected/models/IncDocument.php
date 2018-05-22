@@ -277,6 +277,18 @@ class IncDocument extends BaseIncDocument
 		}
 		return $str;
 	}
+
+	public static function getAsignshowinallstatus($id)
+	{
+		$str = "";
+		$Assign = Assign::model()->findAll('inc_document_document_id=' . $id . '');
+		if (!is_object($Assign)) {
+			foreach ($Assign as $Assigns) {
+				$str .= $Assigns->user->userProfile->first_name . "<br/>";
+			}
+		}
+		return $str;
+	}
 	
 	public static function getrelInc($id)
 	{
