@@ -149,7 +149,7 @@
 		</div>
 		</div>
 	</div>
-	<div style="position:absolute; top:190px">
+	<div id="menu_top">
 	<?php
 	if(Yii::app()->user->checkAccess('Accounting'))
 	{

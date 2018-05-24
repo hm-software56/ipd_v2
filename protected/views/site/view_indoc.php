@@ -16,39 +16,41 @@ Yii::app()->clientScript->registerScript(
  <?php $this->beginWidget('bootstrap.widgets.TbBox', array(
     'title' => Yii::t('app','Document description'),
     'headerIcon' => 'icon-book',
-    )); ?>
-    <table>
-	  <tr>
-	    <td>
-	    <?php echo Yii::t('app','inc_document_no').": ".$model->inc_document_no?>
-	    <br/>
-	    <?php echo Yii::t('app','Document Title').": ".$model->document->document_title?>
-	    <br/>
-	    <?php echo Yii::t('app','Organization Name').": ".$model->fromOrganization->organization_name?>
-	    <br/>
-	    <?php 
-	    if(!empty($model->document->last_modified_id))
-	    	echo Yii::t('app','Single window employee').": ".$model->document->createdBy->userProfile->first_name;
-	    else 
-	    	echo Yii::t('app','Single window employee').": ".$model->document->lastModified->userProfile->first_name;
-	    ?>
-	    </td>
-	    <td>
-	    <?php echo Yii::t('app','Created').": ".date('d-m-Y',strtotime($model->document->created))?>
-	    <br/>
-	    <?php echo Yii::t('app','Type').": ".$model->document->documentType->description?>
-	    <br/>
-	    <?php echo Yii::t('app','Sender').": ".$model->sender?>
-	    <br/>
-	    <?php echo Yii::t('app','Sender contact').": ".$model->sender_contact?> 
-	    </td>
-	    <td>
-	    <?php echo Yii::t('app','Sender ref').": ".$model->sender_ref?> 
-	    <br/>
-	    <?php echo Yii::t('app','Status').": ".$model->documentStatus->status_description?>
-	    </td>
-	  </tr>
-	</table>
+	)); ?>
+	<div class="table-responsive">
+		<table  >
+		<tr>
+			<td>
+			<?php echo "<b>".Yii::t('app','inc_document_no').":</b> ".$model->inc_document_no?>
+			<br/>
+			<?php echo "<b>" . Yii::t('app','Document Title').":</b> ".$model->document->document_title?>
+			<br/>
+			<?php echo "<b>" . Yii::t('app','Organization Name').":</b> ".$model->fromOrganization->organization_name?>
+			<br/>
+			<?php 
+			if(!empty($model->document->last_modified_id))
+				echo "<b>" . Yii::t('app','Single window employee').":</b> ".$model->document->createdBy->userProfile->first_name;
+			else 
+				echo "<b>" . Yii::t('app','Single window employee').":</b> ".$model->document->lastModified->userProfile->first_name;
+			?>
+			</td>
+			<td>
+			<?php echo "<b>" . Yii::t('app','Created').":</b> ".date('d-m-Y',strtotime($model->document->created))?>
+			<br/>
+			<?php echo "<b>" . Yii::t('app','Type').":</b> ".$model->document->documentType->description?>
+			<br/>
+			<?php echo "<b>" . Yii::t('app','Sender').":</b> ".$model->sender?>
+			<br/>
+			<?php echo "<b>" . Yii::t('app','Sender contact').":</b> ".$model->sender_contact?> 
+			</td>
+			<td>
+			<?php echo "<b>" . Yii::t('app','Sender ref').":</b> ".$model->sender_ref?> 
+			<br/>
+			<?php echo "<b>" . Yii::t('app','Status').":</b> ".$model->documentStatus->status_description?>
+			</td>
+		</tr>
+		</table>
+	</div>
  <?php $this->endWidget(); ?>
  
  <?php $this->beginWidget('bootstrap.widgets.TbBox', array(
@@ -88,33 +90,37 @@ Yii::app()->clientScript->registerScript(
 		$assign=Assign::model()->findAllByAttributes(['inc_document_document_id'=>$model->document_id]);
 		if($assign)
 		{
+			echo "<div class='span4'>";
 			foreach ($assign as $assign) {
-					echo "<div class='span4'><div>" . $assign->user->userProfile->first_name;
+					echo $assign->user->userProfile->first_name."<br/>";
 			}
+			echo "</div>";
 		}
 	?>
  <?php $this->endWidget(); ?>
+ 
  <?php $this->beginWidget('bootstrap.widgets.TbBox', array(
     'title' => Yii::t('app','ເອ​ກະ​ສານ ແລະ ສະ​ຖາ​ນະ​ທີ​ກ່ຽວ​ຂ້ອງ'),
     'headerIcon' => 'icon-th',
-    )); ?>
-    <table class="table">
-	<tr style="background:#8297c1">
-		<th><?php echo Yii::t('app', 'Document #') ?></th>
-		<th><?php echo Yii::t('app', 'Document Status') ?></th>
-		<th><?php echo Yii::t('app', 'in_or_out_organization') ?></th>
-		<th><?php echo Yii::t('app', 'Date') ?></th>
-	</tr>
-	<?php 
-		$data = Document::model()->getshowrelatepublic($model->document->id, $model->document->related_document_id, '');
-		if (!empty($data)) {
-			echo $data;
-		} else {
-			echo "<tr><th colspan='3'>" . Yii::t('app', 'No send to section') . "</th></tr>";
-		}
+	)); ?>
+	<div class="table-responsive">
+		<table class="table responsive-table">
+			<tr style="background:#8297c1">
+				<th><?php echo Yii::t('app', 'Document #') ?></th>
+				<th><?php echo Yii::t('app', 'Document Status') ?></th>
+				<th><?php echo Yii::t('app', 'in_or_out_organization') ?></th>
+				<th><?php echo Yii::t('app', 'Date') ?></th>
+			</tr>
+		<?php 
+			$data = Document::model()->getshowrelatepublic($model->document->id, $model->document->related_document_id, '');
+			if (!empty($data)) {
+				echo $data;
+			} else {
+				echo "<tr><th colspan='3'>" . Yii::t('app', 'No send to section') . "</th></tr>";
+			}
 
-	?>
-</table>
+		?>
+		</table>
+	</div>
  <?php $this->endWidget(); ?>   
-
  

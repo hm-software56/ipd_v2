@@ -31,7 +31,7 @@ $this->widget('CgridviewWithVariables', array(
 		array(
 	        'header' => Yii::t('app','Related Document'),
 	        'type' => 'raw',
-	        'value' => 'CHtml::radioButton("name","",
+	        'value' => 'CHtml::checkBox("name","",
 	        	array(
 	            "id"=>"name$data->id",
 	            "value"=>$data->id,

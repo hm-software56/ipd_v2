@@ -274,78 +274,36 @@ $this->layout="column1";
 				}?>
 	<?php $this->endWidget()?>
 	
-	<?php $this->beginWidget('bootstrap.widgets.TbBox', array(
-		    'title' => Yii::t('app','Relate document'),
-		    'headerIcon' => 'icon-th',
-		    )); ?>
-		<?php 
-				$related_docs = Document::model()->findAllBySql(
-					"select * from document where related_document_id=$model->document_id 
-					OR id in(select related_document_id from document where id=$model->document_id)");
-				if($related_docs)
-				{
-					?>
-					<p>
-					<table class="table table-hover">
-						<thead><tr>
-							<th>ID</th>
-							<th><?php echo Yii::t('app','Document No')?></th>
-							<th><?php echo Yii::t('app','Date')?></th>
-							<th><?php echo Yii::t('app','Title')?></th>
-							<th><?php echo Yii::t('app','In or Out')?></th>
-							<th><?php echo Yii::t('app','Type')?></th>
-							<th><?php echo Yii::t('app','From')?></th>
-							<th><?php echo Yii::t('app','Status')?></th>
-						</tr></thead>
-						<?php 
-						foreach($related_docs as $doc)
-						{
-							?>
-							<tr>
-								<td><?php echo $doc->id ?></td>
-								<td><?php 
-									echo CHtml::link(($doc->in_or_out=="INC")?$doc->incDocument->inc_document_no:$doc->outDocument->out_document_no,
-											   	Yii::app()->controller->createUrl('viewDocument',array('id'=>$doc->id,'inout'=>$doc->in_or_out))
-											   );?>
-								</td>
-								<td><?php echo $doc->document_date?></td>
-								<td><?php echo CHtml::link($doc->document_title,
-											   	Yii::app()->controller->createUrl('viewDocument',array('id'=>$doc->id,'inout'=>$doc->in_or_out))
-											   );
-												?></td>
-								<td><?php echo $doc->in_or_out?></td>
-								<td><?php echo $doc->documentType->description?></td>
-								<?php
-								if($doc->in_or_out=="OUT"){
-									?> 
-									<td colspan="2">
-									<?php 
-										foreach($doc->outDocument->documentReceivers as $to)
-										{
-											echo "<div class='row'><div class='span6'>".$to->receiver_name."</div>";
-											echo "<div class='span2'>".$to->documentStatus->status_description."</div></div>";
-										}
-									?>
-									</td>
-									<?php 
-								}else{
-									?>
-									<td><?php echo $doc->incDocument->fromOrganization->organization_name?></td>
-									<td><?php echo $doc->incDocument->documentStatus->status_description?></td>
-								<?php 
-								}
-								?>
-							</tr>
-							<?php 
-						}
-						?>
-					</table>
-					<p/>
-					<?php 	
-				}
-				?>
-		<?php $this->endWidget(); ?> 
+	
 			</div>
 		</div>
 		<p/>
 </div>
+ <?php $this->beginWidget('bootstrap.widgets.TbBox', array(
+	'title' => Yii::t('app', 'ເອ​ກະ​ສານ ແລະ ສະ​ຖາ​ນະ​ທີ​ກ່ຽວ​ຂ້ອງ'),
+	'headerIcon' => 'icon-th',
+)); ?>
+	<div class="table-responsive"> 
+		<table class="table">
+			<tr style="background:#9FE3F5">
+				<th style="min-width:120px;"><?php echo Yii::t('app', 'Document #') ?></th>
+				<th style="min-width:200px;"><?php echo Yii::t('app', 'Title') ?></th>
+				<th><?php echo Yii::t('app', 'In or Out') ?></th>
+				<th><?php echo Yii::t('app', 'Type') ?></th>
+				<th><?php echo Yii::t('app', 'Document Status') ?></th>
+				<th style="min-width:100px;"><?php echo Yii::t('app', 'in_or_out_organization') ?></th>
+				<th style="min-width:100px;"><?php echo Yii::t('app', 'Date') ?></th>
+				<th><?php echo Yii::t('app', 'ມອບ') ?></th>
+			</tr>
+			<?php 
+				$data = Document::model()->getall($model->document->id, $model->document->related_document_id, '');
+				if (!empty($data)) {
+					echo $data;
+				} else {
+					echo "<tr><th colspan='3'>" . Yii::t('app', 'ບໍ່​ມີ​ເອ​ກະ​ສານ​ທີ່​ກ່ຽວ​ຂ້ອງ') . "</th></tr>";
+				}
+
+			?>
+		</table>
+	</div>
+ <?php $this->endWidget(); ?>  

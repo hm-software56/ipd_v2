@@ -26,7 +26,7 @@ body
 }
 
 #username{
-	margin-left:30px;
+	padding-left:30px;
 	margin-right:50px;
 }
 
@@ -44,6 +44,7 @@ body
 
 .md .modal{
 	left:30% !important;
+	width:70%;
 }
 #logo
 {
@@ -74,4 +75,54 @@ body
 	background:#006599;
 	color: white;
 	height: 80px;
+}
+#login_l {
+	padding-left: 30% ;
+}
+@media(max-width:768px) {
+	#logo1 {
+		padding: 0px 0px;
+		font-size: 200%;
+		background: url(../images/bg.gif) repeat-x;
+		height:auto !important;
+	}
+	#login_l{
+		padding-left: 0px !important;
+	}
+	.span_tb{
+		width: 100% !important;
+		margin-left: 0px !important;
+	}
+	#content {
+		padding: 0px !important;
+	}
+	.table-responsive {
+		overflow:auto !important;
+		width:100%;
+		margin: 0 auto;
+	}
+	#menu_top {
+		position: static !important;
+		top: 0px
+	}
+	.md .modal {
+		left:5px !important;
+		width:95% !important;
+	}
+
+	.row-fluid [class*="span"] {
+		display: block;
+		min-height: 30px !important;
+	}
+
+}
+.grid-view {
+	overflow: auto !important;
+	width: 100%;
+	margin: 0 auto;
+}
+#menu_top {
+	position:absolute;
+	top:190px
+
 }

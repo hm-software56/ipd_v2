@@ -25,6 +25,7 @@ echo'<b>'. Yii::t('app','In document of date').' '.date('m-d-Y').'</b>';
 		</div><!-- search-form -->
 	</div>
 </div>
+<div calss="table-responsive">
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'inc-document-grid',
 	 'type'=>'striped',
@@ -126,3 +127,4 @@ echo'<b>'. Yii::t('app','In document of date').' '.date('m-d-Y').'</b>';
 		),
 	),
 )); ?>
+</div>

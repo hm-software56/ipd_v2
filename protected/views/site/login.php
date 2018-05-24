@@ -1,5 +1,5 @@
-<div style="padding-left:30%"
-<div class="span5">
+<div id="login_l">
+<div class="span5 span_tb">
 <?php
 $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 		'id'=>'horizontalForm',
@@ -12,8 +12,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 ?>
 <div id="textlogincolor" align="center">ລະບົບຕິດຕາມເອກະສານ ( Information Tracking System)</div><br/>
 <div align="center">ກະລູນາປ້ອນ ຊື່ຜູ້ໃຊ້(Username) ແລະ ລະຫັດຜ່ານ(Password) ເພື່ອເຂົ້າໃຊ້ລະບົບ</div><br/>
-<?php echo $form->textFieldRow($model,'username', array('class'=>'span2')); ?>
-<?php echo $form->passwordFieldRow($model,'password', array('class'=>'span2')); ?>
+<?php echo $form->textFieldRow($model,'username', array('class'=> 'span2 span_tb')); ?>
+<?php echo $form->passwordFieldRow($model,'password', array('class'=> 'span2 span_tb')); ?>
 <?php echo $form->checkboxRow($model,'rememberMe'); ?>
 
 <div  align="right">

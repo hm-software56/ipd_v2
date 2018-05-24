@@ -8,7 +8,7 @@ $model=Document::model()->findByPk($doc_id);
 	<a href="#myModal_<?= $doc_id ?>" role="button" class="btn btn-link" data-toggle="modal"><?="ເບີ່ງ​ສະ​ຖາ​ນະ​ທັງ​ໝົດ>>"?></a>
 </div>
 <div class="md">
-    <div style="width:70%;left:30% important;" id="myModal_<?= $doc_id ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div  id="myModal_<?= $doc_id ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             <h3 id="myModalLabel">ສະ​ຖາ​ນະ​ທັງ​ໝົດ​ຂອງ​ເອ​ກະ​ສານ​ນີ້</h3>
@@ -54,6 +54,7 @@ $model=Document::model()->findByPk($doc_id);
                             </tr>
                         <?php 
                         $data = Document::model()->getshowrelatestatus($model->id, $model->related_document_id, '');
+                        //$data = Document::model()->getall($model->id, $model->related_document_id, '');
                         if (!empty($data)) {
                             echo $data;
                         } else {
