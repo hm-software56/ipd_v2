@@ -1,0 +1,58 @@
+$(document).ready(function () {
+    new ScrollFlow();
+    $(".video").click(function () {
+        var theModal = $(this).data("target")
+            , videoSRC = $(this).attr("data-video")
+            , videoSRCauto = videoSRC + "?modestbranding=1&rel=0&controls=0&showinfo=0&html5=1&autoplay=1";
+        $(theModal + ' iframe').attr('src', videoSRCauto);
+        $(theModal + ' button.close').click(function () {
+            $(theModal + ' iframe').attr('src', videoSRC);
+        });
+    });
+    var headerH = $(".navbar-inverse").outerHeight();
+    $('.scrollSec a[href^="#"]').on('click', function (e) {
+        var target = this.hash;
+        e.preventDefault();
+        $(".navbar-collapse").removeClass("in");
+        var $target = jQuery(target);
+        $('html, body').animate({
+            scrollTop: $target.offset().top - headerH
+        }, 900, 'swing', function () {});
+    });
+ 
+    var vw = $(window).width();
+
+    
+    if (vw >= 1023) {        
+        (function ($) {
+            $(function () {
+                $(document).off('click.bs.tab.data-api', '[data-hover="tab"]');
+                $(document).on('mouseenter.bs.tab.data-api', '[data-toggle="tab"], [data-hover="tab"]', function () {
+                    $(this).tab('show');
+                });
+            });
+        })(jQuery);
+    }
+});
+$(window).resize(function () {
+    var vw = $(window).width();
+    if (vw >= 1023) {
+         (function ($) {
+            $(function () {
+                $(document).off('click.bs.tab.data-api', '[data-hover="tab"]');
+                $(document).on('mouseenter.bs.tab.data-api', '[data-toggle="tab"], [data-hover="tab"]', function () {
+                    $(this).tab('show');
+                });
+            });
+        })(jQuery);
+    }
+});
+$(window).scroll(function () {
+    var scrollTop = $(this).scrollTop();
+    if (scrollTop >= 50) {
+        $(".navbar-inverse").addClass("navbar-inverse2");
+    }
+    else {
+        $(".navbar-inverse").removeClass("navbar-inverse2");
+    }
+});

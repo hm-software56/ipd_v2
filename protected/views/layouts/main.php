@@ -24,7 +24,15 @@
     <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/css/styles.css" />
     <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/font-awesome/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/css/form.css" />    
-    <!--  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/css/mystyles.css" />-->
+    <?php
+		if(Yii::app()->controller->action->id =="login")
+		{
+	?>
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/bg/css/style.css">
+	<?php
+		}
+	?>
+	<!--  <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->baseUrl; ?>/css/mystyles.css" />-->
 	<!--[if lt IE 9]>
 		<script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
