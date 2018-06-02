@@ -34,6 +34,23 @@ class SiteController extends Controller
 		unset(Yii::app()->session['Setting']);
 		if(Yii::app()->user->id)
 		{
+			// Use for sort by organization or division 
+			if(isset($_POST['division']))
+			{
+				$user_id=array();
+				$userprs=UserProfile::model()->findAllByattributes(array('organization_id'=>(int)$_POST['division']));
+				if(!empty($userprs))
+				{
+					foreach($userprs as $userpr)
+					{
+						$user_id[]=$userpr->user_id;
+					}
+				}
+				Yii::app()->session['userid_groud_org']= $user_id;
+				Yii::app()->session['division_id']= (int)$_POST['division'];
+			}
+			// end used
+
 			$model = new IncDocument('search');
 		    $model->unsetAttributes();
 		    
@@ -302,5 +319,14 @@ class SiteController extends Controller
 			}
 			$this->redirect(array('site/login'));
 		}
+	}
+	public function actionBkdb()
+	{
+		Yii::import('ext.dumpDB.dumpDB');
+		$dumper = new dumpDB('mysql:host=localhost;dbname=ipd_db_v2', 'root', '');
+		$dumper = new dumpDB();
+		$dumper->setRemoveViewDefinerSecurity(true);
+		echo $dumper->getDump();
+		echo "dddd";
 	}
 }

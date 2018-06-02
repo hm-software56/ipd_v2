@@ -38,6 +38,26 @@ echo'<b>'. Yii::t('app','In document of date').'</b>';
 		)); ?>
 		</div><!-- search-form -->
 	</div>
+	<?php
+		$divisions= Organization::model()->findAllByattributes(array('parent_id'=>1));
+	?>
+	<form method="post">
+		<div class="span12"><br/>
+			<b>ເລືອກ​ພະ​ແນກ​ທີ​ຕ້ອງ​ການ​ເບີ່ງ</b>
+			</br>
+			<select name='division' onchange="this.form.submit()">
+			<option value=''>=== ທັງ​ໝົດ​ເອ​ກະ​ສານ ===</option>
+			<?php
+			foreach($divisions as $division)
+			{
+			?>
+				<option value=<?= $division->id?> <?=(Yii::app()->session['division_id']== $division->id)?"selected":""?>><?= $division->organization_name?></option>
+			<?php
+			}
+			?>
+			</select>
+		</div>
+	</form>
 </div>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'inc-document-grid',

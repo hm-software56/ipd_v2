@@ -247,6 +247,9 @@ class OutDocument extends BaseOutDocument
 		$criteria->compare('document.created', $tmp_date,true);
 		$criteria->compare('document.document_date', $this->document_date,true);
 		
+		if (!empty(Yii::app()->session['userid_groud_org']) && Yii::app()->user->checkAccess('DG')) {
+			$criteria->addInCondition('document.created_by', Yii::app()->session['userid_groud_org']);
+		}
 		$pagination = CMap:: mergeArray (array ('pageSize' => 30), (array) $pagination);
 		
 		return new CActiveDataProvider($this, array(

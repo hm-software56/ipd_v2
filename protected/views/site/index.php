@@ -52,7 +52,6 @@ $this->beginWidget('bootstrap.widgets.TbModal', array('htmlOptions'=>array('id'=
 </div>
  
 <?php $this->endWidget(); ?>
-
 <?php
 	if(Yii::app()->user->checkAccess("DG")){ 
 		$this->renderPartial('_dg_grid_indoc',array('model'=>$model));

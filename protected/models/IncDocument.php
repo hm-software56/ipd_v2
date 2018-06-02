@@ -217,6 +217,10 @@ class IncDocument extends BaseIncDocument
 		}else{
 			$criteria->compare('document_id', $this->document_id);
 		}
+		if(!empty(Yii::app()->session['userid_groud_org']) && Yii::app()->user->checkAccess('DG'))
+		{
+			$criteria->addInCondition('document.created_by', Yii::app()->session['userid_groud_org']);
+		}
 		$criteria->compare('inc_document_no', $this->inc_document_no, true);
 		$criteria->compare('is_application', $this->is_application, true);
 		$criteria->compare('sender', $this->sender, true);
