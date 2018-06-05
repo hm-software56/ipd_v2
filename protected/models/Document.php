@@ -305,7 +305,7 @@ class Document extends BaseDocument
             foreach ($cat_arr as $cat) {
                if($cat->in_or_out=="INC")
                {
-            		$select_str.='<tr><td>'.$level_string.'<a href="/index.php/inDocument/'.$cat->id.'">'.$cat->incDocument->inc_document_no.'</a></td><td>'.$cat->incDocument->documentStatus->status_description.'</td><td>'.$cat->incDocument->fromOrganization->organization_name.'</td><td>'.$cat->incDocument->status_date.'</td></tr>';
+            		$select_str.='<tr><td>'.$level_string. '<a href="' . Yii::app()->baseUrl . '/index.php/inDocument/'.$cat->id.'">'.$cat->incDocument->inc_document_no.'</a></td><td>'.$cat->incDocument->documentStatus->status_description.'</td><td>'.$cat->incDocument->fromOrganization->organization_name.'</td><td>'.$cat->incDocument->status_date.'</td></tr>';
                }else{
                		$receiver='';
                		$date='';
@@ -320,7 +320,7 @@ class Document extends BaseDocument
                				$org.=$outs->toOrganization->organization_name.'<br/>';
                			}
                		}
-            		$select_str.='<tr><td>'.$level_string.'<a href="/index.php/outDocument/'.$cat->id.'">'.$cat->outDocument->out_document_no.'</a></td><td>'.$receiver.'</td><td>'.$org.'</td><td>'.$date.'</td></tr>';
+            		$select_str.='<tr><td>'.$level_string. '<a href="' . Yii::app()->baseUrl . '/index.php/outDocument/'.$cat->id.'">'.$cat->outDocument->out_document_no.'</a></td><td>'.$receiver.'</td><td>'.$org.'</td><td>'.$date.'</td></tr>';
                }                   
                $select_str.= $this->getshowrelate($cat->id, $relate_id, $level_string.'<b>&raquo;</b>');                              
             }  
@@ -429,7 +429,7 @@ class Document extends BaseDocument
 					$style = "style='background:#F1F0F0;'";
 				}
 				if ($cat->in_or_out == "INC") {
-					$select_str .= '<tr '.$style.'><td>' . $level_string . ' <a href="/index.php/inDocument/' . $cat->id . '">' . $cat->incDocument->inc_document_no . '</a></td><td>'. $cat->document_title . '</td><td>' . $cat->in_or_out . '</td><td>' . $cat->documentType->description . '</td><td>' . $cat->incDocument->documentStatus->status_description . '</td><td>' . $cat->incDocument->fromOrganization->organization_name . '</td><td>' . $cat->incDocument->status_date . '</td><td>' . $cat->incDocument->getAsignshowinallstatus($cat->id) . '</td></tr>';
+					$select_str .= '<tr '.$style.'><td>' . $level_string . ' <a href="'.Yii::app()->baseUrl.'/index.php/inDocument/' . $cat->id . '">' . $cat->incDocument->inc_document_no . '</a></td><td>'. $cat->document_title . '</td><td>' . $cat->in_or_out . '</td><td>' . $cat->documentType->description . '</td><td>' . $cat->incDocument->documentStatus->status_description . '</td><td>' . $cat->incDocument->fromOrganization->organization_name . '</td><td>' . $cat->incDocument->status_date . '</td><td>' . $cat->incDocument->getAsignshowinallstatus($cat->id) . '</td></tr>';
 				} else {
 					$receiver = '';
 					$date = '';
@@ -444,7 +444,7 @@ class Document extends BaseDocument
 							$receiver_name .= $outs->receiver_name . "<br/>";
 						}
 					}
-					$select_str .= '<tr '. $style .'><td>' . $level_string . ' <a href="/index.php/outDocument/' . $cat->id . '">' . $cat->outDocument->out_document_no . '</a></td><td>' . $cat->document_title . '</td><td>' . $cat->in_or_out . '</td><td>' . $cat->documentType->description . '</td><td>' . $receiver . '</td><td>' . $org . '</td><td>' . $date . '</td><td>' . $receiver_name . '</td></tr>';
+					$select_str .= '<tr '. $style .'><td>' . $level_string . ' <a href="' . Yii::app()->baseUrl . '/index.php/outDocument/' . $cat->id . '">' . $cat->outDocument->out_document_no . '</a></td><td>' . $cat->document_title . '</td><td>' . $cat->in_or_out . '</td><td>' . $cat->documentType->description . '</td><td>' . $receiver . '</td><td>' . $org . '</td><td>' . $date . '</td><td>' . $receiver_name . '</td></tr>';
 				}
 				$select_str .= $this->getalldocrelated($cat->id, $relate_id, $level_string . '<b>&raquo;</b>');
 			}
@@ -479,7 +479,7 @@ class Document extends BaseDocument
 					}else{
 						$level_string = '';
 						if ($cat->in_or_out == "INC") {
-							$select_str .= '<tr>'.$style.'<td>' . $level_string . ' <a href="/index.php/inDocument/' . $cat->id . '">' . $cat->incDocument->inc_document_no . '</a></td><td>' . $cat->document_title . '</td><td>' . $cat->in_or_out . '</td><td>' . $cat->documentType->description . '</td><td>' . $cat->incDocument->documentStatus->status_description . '</td><td>' . $cat->incDocument->fromOrganization->organization_name . '</td><td>' . $cat->incDocument->status_date . '</td><td>' . $cat->incDocument->getAsignshowinallstatus($cat->id) . '</td></tr>';
+							$select_str .= '<tr>'.$style.'<td>' . $level_string . ' <a href="' . Yii::app()->baseUrl . '/index.php/inDocument/' . $cat->id . '">' . $cat->incDocument->inc_document_no . '</a></td><td>' . $cat->document_title . '</td><td>' . $cat->in_or_out . '</td><td>' . $cat->documentType->description . '</td><td>' . $cat->incDocument->documentStatus->status_description . '</td><td>' . $cat->incDocument->fromOrganization->organization_name . '</td><td>' . $cat->incDocument->status_date . '</td><td>' . $cat->incDocument->getAsignshowinallstatus($cat->id) . '</td></tr>';
 						}else{
 							$receiver = '';
 							$date = '';
@@ -494,7 +494,7 @@ class Document extends BaseDocument
 									$receiver_name .= $outs->receiver_name . "<br/>";
 								}
 							}
-							$select_str .= '<tr>'.$style.'<td>' . $level_string . ' <a href="/index.php/outDocument/' . $cat->id . '">' . $cat->outDocument->out_document_no . '</a></td><td>' . $cat->document_title . '</td><td>' . $cat->in_or_out . '</td><td>' . $cat->documentType->description . '</td><td>' . $receiver . '</td><td>' . $org . '</td><td>' . $date . '</td><td>' . $receiver_name . '</td></tr>';
+							$select_str .= '<tr>'.$style.'<td>' . $level_string . ' <a href="' . Yii::app()->baseUrl . '/index.php/outDocument/' . $cat->id . '">' . $cat->outDocument->out_document_no . '</a></td><td>' . $cat->document_title . '</td><td>' . $cat->in_or_out . '</td><td>' . $cat->documentType->description . '</td><td>' . $receiver . '</td><td>' . $org . '</td><td>' . $date . '</td><td>' . $receiver_name . '</td></tr>';
 				
 						}
 						$select_str .= $this->getalldocrelated($cat->id, $cat->related_document_id, $level_string . '<b>&raquo;</b>');

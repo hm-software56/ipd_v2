@@ -45,8 +45,8 @@
 		<div id="logo1">
 			<table>
 			<tr>
-			<td><?php echo CHtml::image(Yii::app()->baseUrl.'/../images/logo.gif' ) ?></td>
-			<td><div align="right"><?php echo CHtml::image(Yii::app()->baseUrl.'/../images/logoright.gif' ) ?></div></td>
+			<td><?php echo CHtml::image(Yii::app()->baseUrl.'/images/logo.gif' ) ?></td>
+			<td><div align="right"><?php echo CHtml::image(Yii::app()->baseUrl.'/images/logoright.gif' ) ?></div></td>
 			</tr>
 			</table>
 		</div>
@@ -111,7 +111,7 @@
 						array('label' => 'ເພີ່ມຂະແໜງທຸລະກິດ', 'url'=>array('/businessSector/create'),),
 					),
 			    ),
-			    
+				array('label' => 'Backup ຖານ​ຂໍ້​ມ​ູນ', 'url' => array('/site/bkdb')),
 			    array('label'=>'ອອກຈາກລະບົບ', 'url'=>array('/site/logout') ),
 		    ), 
 		));

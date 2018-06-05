@@ -14219,3 +14219,181 @@ Stack trace:
 #25 {main}
 REQUEST_URI=/index.php/site/index
 ---
+2018/06/05 04:12:54 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.basePhath" is not defined.' in F:\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 F:\yii\framework\base\CModule.php(105): CComponent->__get('basePhath')
+#1 F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php(325): CModule->__get('basePhath')
+#2 F:\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionBkdb()
+#3 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 F:\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 F:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 F:\yii\framework\web\CWebApplication.php(282): CController->run('bkdb')
+#7 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/bkdb')
+#8 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php/site/bkdb
+---
+2018/06/05 04:13:05 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "basePhath".' in F:\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php(325): CComponent->__call('basePhath', Array)
+#1 F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php(325): CWebApplication->basePhath()
+#2 F:\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionBkdb()
+#3 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 F:\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 F:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 F:\yii\framework\web\CWebApplication.php(282): CController->run('bkdb')
+#7 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/bkdb')
+#8 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php/site/bkdb
+---
+2018/06/05 04:14:25 [error] [exception.CException] exception 'CException' with message 'CWebApplication and its behaviors do not have a method or closure named "basePath".' in F:\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php(325): CComponent->__call('basePath', Array)
+#1 F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php(325): CWebApplication->basePath()
+#2 F:\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionBkdb()
+#3 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 F:\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 F:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 F:\yii\framework\web\CWebApplication.php(282): CController->run('bkdb')
+#7 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/bkdb')
+#8 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php/site/bkdb
+---
+2018/06/05 04:17:07 [error] [php] Undefined variable: webRootPath (F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php:326)
+Stack trace:
+#0 F:\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 F:\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 F:\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/bkdb
+in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php (326)
+in F:\Projectweb\ipd_v2\ipd_v2\index.php (13)
+2018/06/05 04:33:46 [error] [php] filesize(): stat failed for './backup.'/'. 1002_go noet 185 09 04 2014.pdf .' (F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php:331)
+Stack trace:
+#0 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 F:\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 F:\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 F:\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/bkdb
+in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php (331)
+in F:\Projectweb\ipd_v2\ipd_v2\index.php (13)
+2018/06/05 04:34:27 [error] [php] filesize(): stat failed for 1002_go noet 185 09 04 2014.pdf (F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php:331)
+Stack trace:
+#0 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 F:\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 F:\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 F:\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#6 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/bkdb
+in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php (331)
+in F:\Projectweb\ipd_v2\ipd_v2\index.php (13)
+2018/06/05 05:32:53 [error] [php] Undefined variable: webroot (F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php:327)
+Stack trace:
+#0 F:\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 F:\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 F:\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/bkdb
+in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php (327)
+in F:\Projectweb\ipd_v2\ipd_v2\index.php (13)
+2018/06/05 06:51:01 [error] [php] Undefined variable: webroot (F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php:327)
+Stack trace:
+#0 F:\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 F:\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 F:\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#5 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/bkdb
+in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php (327)
+in F:\Projectweb\ipd_v2\ipd_v2\index.php (13)
+2018/06/05 09:59:39 [error] [php] array_diff(): at least 2 parameters are required, 1 given (F:\Projectweb\ipd_v2\ipd_v2\protected\views\site\bkdb.php:3)
+Stack trace:
+#0 F:\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 F:\yii\framework\web\CController.php(869): SiteController->renderFile()
+#2 F:\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#3 F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php(327): SiteController->render()
+#4 F:\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionBkdb()
+#5 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 F:\yii\framework\web\CController.php(286): SiteController->runAction()
+#7 F:\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#8 F:\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#9 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/bkdb
+in F:\Projectweb\ipd_v2\ipd_v2\protected\views\site\bkdb.php (3)
+in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php (327)
+in F:\Projectweb\ipd_v2\ipd_v2\index.php (13)
+2018/06/05 10:09:46 [error] [exception.CException] exception 'CException' with message 'Property "SiteController.title" is not defined.' in F:\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 F:\Projectweb\ipd_v2\ipd_v2\protected\views\site\bkdb.php(2): CComponent->__set('title', '???????????????...')
+#1 F:\yii\framework\web\CBaseController.php(126): require('F:\Projectweb\i...')
+#2 F:\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('F:\Projectweb\i...', Array, true)
+#3 F:\yii\framework\web\CController.php(869): CBaseController->renderFile('F:\Projectweb\i...', Array, true)
+#4 F:\yii\framework\web\CController.php(782): CController->renderPartial('bkdb', Array, true)
+#5 F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php(327): CController->render('bkdb', Array)
+#6 F:\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionBkdb()
+#7 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#8 F:\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#9 F:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 F:\yii\framework\web\CWebApplication.php(282): CController->run('bkdb')
+#11 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/bkdb')
+#12 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#13 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/index.php/site/bkdb
+---
+2018/06/05 10:19:06 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'ການຮ້ອງຂໍ ຂອງທ່ານ ແມ່ນບໍ່ຖືກຕ້ອງ' in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php:330
+Stack trace:
+#0 F:\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionBkdb()
+#1 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 F:\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#3 F:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 F:\yii\framework\web\CWebApplication.php(282): CController->run('bkdb')
+#5 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/bkdb')
+#6 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/index.php/site/bkdb
+---
+2018/06/05 10:20:31 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'ທ່ານ​ບໍ່​ມີ​ສິດ​ເຂົ້າ​ຫາ​ໜ້ານີ້......' in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php:330
+Stack trace:
+#0 F:\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionBkdb()
+#1 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 F:\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#3 F:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 F:\yii\framework\web\CWebApplication.php(282): CController->run('bkdb')
+#5 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/bkdb')
+#6 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/index.php/site/bkdb
+---
+2018/06/05 10:21:00 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'ທ່ານ​ບໍ່​ມີສິດ​ເຂົ້າ​ຫາ​ໜ້ານີ້......' in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php:330
+Stack trace:
+#0 F:\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionBkdb()
+#1 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#2 F:\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#3 F:\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#4 F:\yii\framework\web\CWebApplication.php(282): CController->run('bkdb')
+#5 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/bkdb')
+#6 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#7 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CApplication->run()
+#8 {main}
+REQUEST_URI=/index.php/site/bkdb
+---

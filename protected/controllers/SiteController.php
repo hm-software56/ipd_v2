@@ -322,11 +322,17 @@ class SiteController extends Controller
 	}
 	public function actionBkdb()
 	{
-		Yii::import('ext.dumpDB.dumpDB');
-		$dumper = new dumpDB('mysql:host=localhost;dbname=ipd_db_v2', 'root', '');
-		$dumper = new dumpDB();
-		$dumper->setRemoveViewDefinerSecurity(true);
-		echo $dumper->getDump();
-		echo "dddd";
+		if(!Yii::app()->user->checkAccess('Administrator'))
+		{
+			if(!empty(Yii::app()->user->id)){
+				throw new CHttpException(400, Yii::t('app', 'ທ່ານ​ບໍ່​ມີສິດ​ເຂົ້າ​ຫາ​ໜ້ານີ້......'));
+			}else{
+				$this->redirect(array('site/login'));
+			}
+		}else{
+			$path = Yii::app()->basePath . '/../backup';
+			$url = Yii::app()->baseUrl . '/backup';
+			$this->render('bkdb', array('path' => $path, 'url' => $url));
+		}
 	}
 }
