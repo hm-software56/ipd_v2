@@ -14397,3 +14397,21 @@ Stack trace:
 #8 {main}
 REQUEST_URI=/index.php/site/bkdb
 ---
+2018/06/06 06:25:05 [error] [php] scandir(F:\Projectweb\ipd_v2\ipd_v2\protected/../backup/db,F:\Projectweb\ipd_v2\ipd_v2\protected/../backup/db): The system cannot find the file specified. (code: 2) (F:\Projectweb\ipd_v2\ipd_v2\protected\views\site\bkdb.php:7)
+Stack trace:
+#0 F:\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 F:\yii\framework\web\CController.php(869): SiteController->renderFile()
+#2 F:\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#3 F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php(335): SiteController->render()
+#4 F:\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionBkdb()
+#5 F:\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#6 F:\yii\framework\web\CController.php(286): SiteController->runAction()
+#7 F:\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#8 F:\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#9 F:\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 F:\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#11 F:\Projectweb\ipd_v2\ipd_v2\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php/site/bkdb
+in F:\Projectweb\ipd_v2\ipd_v2\protected\views\site\bkdb.php (7)
+in F:\Projectweb\ipd_v2\ipd_v2\protected\controllers\SiteController.php (335)
+in F:\Projectweb\ipd_v2\ipd_v2\index.php (13)

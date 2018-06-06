@@ -310,7 +310,7 @@ class SiteController extends Controller
 	{
 		if(isset($_POST['code']))
 		{
-			$indoc=IncDocument::model()->findByAttributes(['inc_document_no'=>$_POST['code']]);
+			$indoc=IncDocument::model()->findByAttributes(array('inc_document_no'=>$_POST['code']));
 			if($indoc)
 			{
 				$this->redirect(array('/site/indocPublic', 'id' => $indoc->document_id));

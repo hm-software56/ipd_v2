@@ -87,7 +87,7 @@ Yii::app()->clientScript->registerScript(
 			echo "<div class='span4'><div>".$model->documentStatus->status_description."</div></div>";
 			echo "<div class='span4'><div>".$model->document->last_modified."</div></div>";
 		}
-		$assign=Assign::model()->findAllByAttributes(['inc_document_document_id'=>$model->document_id]);
+		$assign=Assign::model()->findAllByAttributes(array('inc_document_document_id'=>$model->document_id));
 		if($assign)
 		{
 			echo "<div class='span4'>";
